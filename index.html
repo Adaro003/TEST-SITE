@@ -3,79 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transform Pilates - Professional Pilates Instruction</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Transform Pilates Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B5CF6;
+            --secondary: #EC4899;
+            --light: #F8F5FF;
+            --dark: #1F2937;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        nav {
+            background: linear-gradient(135deg, var(--primary), #6D28D9);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary), #6D28D9);
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4);
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .about {
+            background: var(--light);
+        }
+
+        .services {
+            background: white;
+        }
+
+        .pricing {
+            background: var(--light);
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .booking {
+            background: var(--light);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .booking-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+        }
+
+        .contact {
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--primary);
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--primary), #6D28D9);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success {
+            background: #D1FAE5;
+            color: #065F46;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .success.show {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">Transform Pilates</div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#booking">Book Now</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <nav>
+        <div class="container">
+            <div class="logo">🧘 Transform Pilates</div>
+            <div>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#booking">Book</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
+    <section class="hero" id="home">
+        <div class="container">
             <h1>Transform Your Body & Mind</h1>
             <p>Professional Pilates Instruction for Strength, Flexibility & Wellness</p>
-            <a href="#booking" class="cta-button">Schedule Your First Session</a>
+            <a href="#booking" class="btn">Schedule Your First Session</a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <section class="about" id="about">
         <div class="container">
             <h2>About Your Instructor</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Welcome to Transform Pilates! I'm a certified Pilates instructor with over 8 years of experience helping clients achieve their fitness goals through personalized Pilates training.</p>
-                    <p>My approach combines classical Pilates techniques with modern fitness science to deliver results. Whether you're a beginner or advanced practitioner, I'll create a customized program tailored to your needs.</p>
-                    <ul class="qualifications">
-                        <li>✓ Certified Pilates Instructor (Comprehensive Mat & Reformer)</li>
-                        <li>✓ Personal Training Certification</li>
-                        <li>✓ Specialized in Core Strengthening & Rehabilitation</li>
-                        <li>✓ 8+ Years Professional Experience</li>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                    Welcome to Transform Pilates! I'm a certified Pilates instructor with 8+ years of experience helping clients achieve their fitness goals through personalized Pilates training.
+                </p>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                    My approach combines classical Pilates techniques with modern fitness science to deliver real results. Whether you're a beginner or advanced practitioner, I'll create a customized program tailored to your needs.
+                </p>
+                <div style="background: white; padding: 2rem; border-radius: 12px;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Qualifications & Experience</h3>
+                    <ul style="list-style: none;">
+                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #E5E7EB;">✓ Certified Pilates Instructor (Mat & Reformer)</li>
+                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #E5E7EB;">✓ Personal Training Certification</li>
+                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #E5E7EB;">✓ Specialized in Core Strengthening & Rehabilitation</li>
+                        <li style="padding: 0.8rem 0;">✓ 8+ Years Professional Experience</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <section class="services" id="services">
         <div class="container">
             <h2>Services Offered</h2>
-            <div class="services-grid">
-                <div class="service-card">
+            <div class="grid">
+                <div class="card">
                     <h3>Mat Pilates</h3>
                     <p>Foundational Pilates using body weight and minimal props. Perfect for beginners and building core strength.</p>
                 </div>
-                <div class="service-card">
+                <div class="card">
                     <h3>Reformer Pilates</h3>
                     <p>Advanced training using specialized equipment for enhanced resistance and deeper muscle engagement.</p>
                 </div>
-                <div class="service-card">
+                <div class="card">
                     <h3>Private Sessions</h3>
-                    <p>One-on-one personalized instruction tailored to your goals, fitness level, and any physical limitations.</p>
+                    <p>One-on-one personalized instruction tailored to your goals, fitness level, and physical needs.</p>
                 </div>
-                <div class="service-card">
+                <div class="card">
                     <h3>Group Classes</h3>
                     <p>Join our community classes for motivation, affordability, and a supportive fitness environment.</p>
                 </div>
-                <div class="service-card">
+                <div class="card">
                     <h3>Rehabilitation</h3>
-                    <p>Post-injury or post-surgery recovery programs designed with your physical therapist's recommendations.</p>
+                    <p>Post-injury recovery programs designed with your physical therapist's recommendations in mind.</p>
                 </div>
-                <div class="service-card">
+                <div class="card">
                     <h3>Corporate Wellness</h3>
                     <p>On-site Pilates classes for companies looking to improve employee health and wellness.</p>
                 </div>
@@ -83,78 +341,63 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
+    <section class="pricing" id="pricing">
         <div class="container">
             <h2>Pricing Plans</h2>
-            <div class="pricing-grid">
+            <div class="grid">
                 <div class="pricing-card">
                     <h3>Single Session</h3>
-                    <p class="price">$60</p>
-                    <ul>
-                        <li>60-minute private session</li>
-                        <li>Personalized assessment</li>
-                        <li>Customized workout plan</li>
+                    <div class="price">$60</div>
+                    <ul style="list-style: none; text-align: left;">
+                        <li style="padding: 0.5rem 0;">✓ 60-minute session</li>
+                        <li style="padding: 0.5rem 0;">✓ Personalized assessment</li>
+                        <li style="padding: 0.5rem 0;">✓ Customized plan</li>
                     </ul>
-                    <a href="#booking" class="booking-btn">Book Now</a>
+                    <a href="#booking" class="btn" style="margin-top: 1rem;">Book Now</a>
                 </div>
                 <div class="pricing-card featured">
-                    <span class="badge">Popular</span>
-                    <h3>5-Session Package</h3>
-                    <p class="price">$275</p>
-                    <ul>
-                        <li>5 × 60-minute sessions</li>
-                        <li>$55 per session</li>
-                        <li>Valid for 6 months</li>
-                        <li>Progress tracking</li>
+                    <h3>⭐ 5-Session Package</h3>
+                    <div class="price">$275</div>
+                    <ul style="list-style: none; text-align: left;">
+                        <li style="padding: 0.5rem 0;">✓ 5 sessions ($55 each)</li>
+                        <li style="padding: 0.5rem 0;">✓ Valid 6 months</li>
+                        <li style="padding: 0.5rem 0;">✓ Progress tracking</li>
                     </ul>
-                    <a href="#booking" class="booking-btn featured-btn">Book Now</a>
+                    <a href="#booking" class="btn" style="margin-top: 1rem;">Book Now</a>
                 </div>
                 <div class="pricing-card">
                     <h3>10-Session Package</h3>
-                    <p class="price">$500</p>
-                    <ul>
-                        <li>10 × 60-minute sessions</li>
-                        <li>$50 per session</li>
-                        <li>Valid for 12 months</li>
-                        <li>Unlimited adjustments</li>
+                    <div class="price">$500</div>
+                    <ul style="list-style: none; text-align: left;">
+                        <li style="padding: 0.5rem 0;">✓ 10 sessions ($50 each)</li>
+                        <li style="padding: 0.5rem 0;">✓ Valid 12 months</li>
+                        <li style="padding: 0.5rem 0;">✓ Unlimited adjustments</li>
                     </ul>
-                    <a href="#booking" class="booking-btn">Book Now</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Group Classes</h3>
-                    <p class="price">$20</p>
-                    <ul>
-                        <li>Per class drop-in rate</li>
-                        <li>Small group setting</li>
-                        <li>Mixed levels welcome</li>
-                    </ul>
-                    <a href="#booking" class="booking-btn">Book Now</a>
+                    <a href="#booking" class="btn" style="margin-top: 1rem;">Book Now</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Booking Section -->
-    <section id="booking" class="booking">
+    <section class="booking" id="booking">
         <div class="container">
             <h2>Book Your Session</h2>
             <form class="booking-form" id="bookingForm">
                 <div class="form-group">
                     <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <input type="tel" id="phone" required>
                 </div>
                 <div class="form-group">
                     <label for="service">Service Type *</label>
-                    <select id="service" name="service" required>
+                    <select id="service" required>
                         <option value="">-- Select Service --</option>
                         <option value="mat">Mat Pilates</option>
                         <option value="reformer">Reformer Pilates</option>
@@ -166,45 +409,42 @@
                 </div>
                 <div class="form-group">
                     <label for="date">Preferred Date *</label>
-                    <input type="date" id="date" name="date" required>
+                    <input type="date" id="date" required>
                 </div>
                 <div class="form-group">
                     <label for="time">Preferred Time *</label>
-                    <select id="time" name="time" required>
+                    <select id="time" required>
                         <option value="">-- Select Time --</option>
-                        <option value="06:00">6:00 AM</option>
-                        <option value="07:00">7:00 AM</option>
-                        <option value="08:00">8:00 AM</option>
-                        <option value="10:00">10:00 AM</option>
-                        <option value="12:00">12:00 PM</option>
-                        <option value="14:00">2:00 PM</option>
-                        <option value="16:00">4:00 PM</option>
-                        <option value="17:00">5:00 PM</option>
-                        <option value="18:00">6:00 PM</option>
+                        <option value="6:00 AM">6:00 AM</option>
+                        <option value="7:00 AM">7:00 AM</option>
+                        <option value="8:00 AM">8:00 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="2:00 PM">2:00 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
+                        <option value="6:00 PM">6:00 PM</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="experience">Experience Level *</label>
-                    <select id="experience" name="experience" required>
+                    <select id="experience" required>
                         <option value="">-- Select Level --</option>
-                        <option value="beginner">Beginner</option>
-                        <option value="intermediate">Intermediate</option>
-                        <option value="advanced">Advanced</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="message">Additional Notes</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Any injuries, goals, or special requests?"></textarea>
+                    <textarea id="message" rows="4" placeholder="Any injuries or special requests?"></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Submit Booking Request</button>
-                <p class="form-note">We'll confirm your booking within 24 hours</p>
+                <button type="submit" class="btn" style="width: 100%;">Submit Booking Request</button>
+                <div class="success" id="successMsg">✓ Booking submitted! We'll confirm within 24 hours.</div>
             </form>
-            <div id="formMessage" class="form-message"></div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section class="contact" id="contact">
         <div class="container">
             <h2>Get In Touch</h2>
             <div class="contact-grid">
@@ -222,20 +462,48 @@
                 </div>
                 <div class="contact-item">
                     <h3>🕐 Hours</h3>
-                    <p>Mon - Fri: 6 AM - 7 PM<br>Sat - Sun: 8 AM - 2 PM</p>
+                    <p>Mon-Fri: 6 AM - 7 PM<br>Sat-Sun: 8 AM - 2 PM</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Transform Pilates. All rights reserved.</p>
-            <p>Dedicated to your health, strength, and wellness.</p>
-        </div>
+    <footer>
+        <p>&copy; 2024 Transform Pilates. Dedicated to your health & wellness.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        const form = document.getElementById('bookingForm');
+        const successMsg = document.getElementById('successMsg');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const booking = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                experience: document.getElementById('experience').value,
+                message: document.getElementById('message').value,
+                submittedAt: new Date().toLocaleString()
+            };
+            
+            const bookings = JSON.parse(localStorage.getItem('pilatesBookings')) || [];
+            bookings.push(booking);
+            localStorage.setItem('pilatesBookings', JSON.stringify(bookings));
+            
+            console.log('Booking saved:', booking);
+            successMsg.classList.add('show');
+            form.reset();
+            
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 5000);
+        });
+
+        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+    </script>
 </body>
 </html>
