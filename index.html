@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>EduPro</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#classes" class="nav-link">Classes</a></li>
+                <li><a href="#instructors" class="nav-link">Instructors</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Elevate Your Skills Today</h2>
+            <p>Join thousands of learners mastering new skills with our expert instructors</p>
+            <button class="cta-button">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section class="section classes-section" id="classes">
+        <div class="container">
+            <h2 class="section-title">Our Classes</h2>
+            <div class="classes-grid">
+                <div class="class-card">
+                    <div class="class-icon">📚</div>
+                    <div class="class-content">
+                        <h3>Web Development</h3>
+                        <p>Learn HTML, CSS, and JavaScript to build responsive websites from scratch.</p>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-icon">🎨</div>
+                    <div class="class-content">
+                        <h3>UI/UX Design</h3>
+                        <p>Master design principles and create beautiful user experiences.</p>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-icon">🐍</div>
+                    <div class="class-content">
+                        <h3>Python Programming</h3>
+                        <p>Become proficient in Python for data science and web applications.</p>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-icon">📊</div>
+                    <div class="class-content">
+                        <h3>Data Analytics</h3>
+                        <p>Learn to analyze and visualize data to make informed decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors Section -->
+    <section class="section instructors-section" id="instructors">
+        <div class="container">
+            <h2 class="section-title">Meet Our Instructors</h2>
+            <div class="instructors-grid">
+                <div class="instructor-card">
+                    <div class="instructor-image">👨‍🏫</div>
+                    <div class="instructor-info">
+                        <h3>John Smith</h3>
+                        <p>Senior Developer</p>
+                        <span class="instructor-specialty">Web Development</span>
+                    </div>
+                </div>
+                <div class="instructor-card">
+                    <div class="instructor-image">👩‍💼</div>
+                    <div class="instructor-info">
+                        <h3>Sarah Johnson</h3>
+                        <p>Design Lead</p>
+                        <span class="instructor-specialty">UI/UX Design</span>
+                    </div>
+                </div>
+                <div class="instructor-card">
+                    <div class="instructor-image">👨‍💻</div>
+                    <div class="instructor-info">
+                        <h3>Michael Chen</h3>
+                        <p>Data Scientist</p>
+                        <span class="instructor-specialty">Data Analytics</span>
+                    </div>
+                </div>
+                <div class="instructor-card">
+                    <div class="instructor-image">👩‍🔬</div>
+                    <div class="instructor-info">
+                        <h3>Emily Davis</h3>
+                        <p>Python Expert</p>
+                        <span class="instructor-specialty">Python Programming</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="section schedule-section">
+        <div class="container">
+            <h2 class="section-title">Class Schedule</h2>
+            <div class="schedule-container">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Instructor</th>
+                            <th>Time</th>
+                            <th>Duration</th>
+                            <th>Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Web Development Basics</td>
+                            <td>John Smith</td>
+                            <td>Monday & Wednesday, 10:00 AM</td>
+                            <td>8 weeks</td>
+                            <td>Beginner</td>
+                        </tr>
+                        <tr>
+                            <td>Advanced UI/UX Design</td>
+                            <td>Sarah Johnson</td>
+                            <td>Tuesday & Thursday, 2:00 PM</td>
+                            <td>10 weeks</td>
+                            <td>Intermediate</td>
+                        </tr>
+                        <tr>
+                            <td>Python for Data Science</td>
+                            <td>Michael Chen</td>
+                            <td>Saturday, 9:00 AM</td>
+                            <td>12 weeks</td>
+                            <td>Intermediate</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Our Pricing Plans</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <div class="price">$29<span class="price-period">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Access to 5 courses</li>
+                        <li>Email support</li>
+                        <li>Certificate of completion</li>
+                        <li>Community access</li>
+                    </ul>
+                    <button class="pricing-button">Choose Plan</button>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Professional</h3>
+                    <div class="price">$79<span class="price-period">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Access to all courses</li>
+                        <li>Priority support</li>
+                        <li>Certificate of completion</li>
+                        <li>1-on-1 mentoring</li>
+                        <li>Project feedback</li>
+                    </ul>
+                    <button class="pricing-button">Choose Plan</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Premium</h3>
+                    <div class="price">$149<span class="price-period">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Unlimited course access</li>
+                        <li>24/7 priority support</li>
+                        <li>Multiple certificates</li>
+                        <li>Personal mentor</li>
+                        <li>Job placement assistance</li>
+                    </ul>
+                    <button class="pricing-button">Choose Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="subject" placeholder="Subject" required>
+                    <textarea rows="6" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h3>📍 Address</h3>
+                        <p>123 Learning Street<br>Education City, EC 12345<br>United States</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>📞 Phone</h3>
+                        <p>+1 (555) 123-4567<br>Monday - Friday<br>9:00 AM - 6:00 PM</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>✉️ Email</h3>
+                        <p>support@edupro.com<br>info@edupro.com<br>careers@edupro.com</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>🌐 Follow Us</h3>
+                        <p>Facebook | Twitter | Instagram<br>LinkedIn | YouTube</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 EduPro Learning Platform. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
