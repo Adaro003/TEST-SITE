@@ -77,7 +77,7 @@
 
         /* ===== HERO SECTION ===== */
         .hero {
-            background: linear-gradient(135deg, rgba(212, 165, 165, 0.85), rgba(200, 155, 160, 0.85)), url('https://images.unsplash.com/photo-1552196881-acbed25f4b34?w=1200&h=600&fit=crop') center/cover;
+            background: linear-gradient(135deg, var(--primary), #C89BA0), linear-gradient(45deg, #F4B4D4, #D4A5A5);
             color: var(--white);
             padding: 150px 20px;
             text-align: center;
@@ -264,12 +264,10 @@
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(212, 165, 165, 0.2);
             aspect-ratio: 1;
-        }
-
-        .instructor-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
         }
 
         .instructor-bio {
@@ -350,13 +348,10 @@
             width: 100%;
             height: 200px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            overflow: hidden;
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
         }
 
         .service-content {
@@ -601,13 +596,11 @@
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             aspect-ratio: 1;
             border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .instagram-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.2);
         }
 
         /* ===== BOOKING SECTION ===== */
@@ -814,7 +807,7 @@
                 <div class="hero-buttons">
                     <a href="#booking" class="btn">
                         <span class="discount-badge">20% OFF - WELCOME20</span>
-                        🎯 Book Your First Session
+                        🧘 Book Your First Session
                     </a>
                     <a href="#schedule" class="btn btn-secondary">📅 View Schedule</a>
                 </div>
@@ -838,7 +831,7 @@
                     <p>Increase your range of motion and joint mobility through controlled, flowing movements that lengthen muscles safely.</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-icon">🏃</div>
                     <h3>Better Posture</h3>
                     <p>Correct imbalances and bad habits to stand taller, feel more confident, and eliminate chronic pain from poor alignment.</p>
                 </div>
@@ -866,9 +859,7 @@
         <div class="container">
             <h2>Meet Your Instructor</h2>
             <div class="instructor-content">
-                <div class="instructor-photo">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=500&fit=crop" alt="Professional Pilates Instructor">
-                </div>
+                <div class="instructor-photo">👩‍🏫</div>
                 <div class="instructor-bio">
                     <h3>Your Pilates Journey Begins With Me</h3>
                     <p>
@@ -902,56 +893,44 @@
             <h2>Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=200&fit=crop" alt="Mat Pilates">
-                    </div>
+                    <div class="service-image">🧘‍♀️</div>
                     <div class="service-content">
-                        <h3>🧘‍♀️ Mat Pilates</h3>
+                        <h3>Mat Pilates</h3>
                         <p>Foundational Pilates using body weight and minimal props. Perfect for beginners and building core strength from the ground up.</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=200&fit=crop" alt="Reformer Pilates">
-                    </div>
+                    <div class="service-image">⚙️</div>
                     <div class="service-content">
-                        <h3>⚙️ Reformer Pilates</h3>
+                        <h3>Reformer Pilates</h3>
                         <p>Advanced training using specialized equipment for enhanced resistance and deeper muscle engagement. Perfect for next-level results.</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1549576528-b0c0510e9f0f?w=400&h=200&fit=crop" alt="Private Sessions">
-                    </div>
+                    <div class="service-image">👥</div>
                     <div class="service-content">
-                        <h3>👥 Private Sessions</h3>
+                        <h3>Private Sessions</h3>
                         <p>One-on-one personalized instruction tailored to your goals, fitness level, and any physical limitations or injuries.</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1544367567-0d6fcffe7c4b?w=400&h=200&fit=crop" alt="Group Classes">
-                    </div>
+                    <div class="service-image">👫</div>
                     <div class="service-content">
-                        <h3>👫 Group Classes</h3>
+                        <h3>Group Classes</h3>
                         <p>Join our community classes for motivation, affordability, and a supportive fitness environment with other women.</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=400&h=200&fit=crop" alt="Rehabilitation">
-                    </div>
+                    <div class="service-image">🏥</div>
                     <div class="service-content">
-                        <h3>🏥 Rehabilitation</h3>
+                        <h3>Rehabilitation</h3>
                         <p>Specialized post-injury recovery programs designed with your physical therapist's recommendations in mind.</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1552673597-acf88f95adaa?w=400&h=200&fit=crop" alt="Corporate Wellness">
-                    </div>
+                    <div class="service-image">🏢</div>
                     <div class="service-content">
-                        <h3>🏢 Corporate Wellness</h3>
+                        <h3>Corporate Wellness</h3>
                         <p>On-site Pilates classes for companies looking to improve employee health, wellness, and workplace happiness.</p>
                     </div>
                 </div>
@@ -1129,18 +1108,10 @@
                 </div>
                 <h3 style="margin-top: 3rem; color: var(--primary);">Latest From Instagram</h3>
                 <div class="instagram-feed">
-                    <div class="instagram-placeholder">
-                        <img src="https://images.unsplash.com/photo-1552673597-acf88f95adaa?w=300&h=300&fit=crop" alt="Class moment 1">
-                    </div>
-                    <div class="instagram-placeholder">
-                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=300&h=300&fit=crop" alt="Class moment 2">
-                    </div>
-                    <div class="instagram-placeholder">
-                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=300&h=300&fit=crop" alt="Class moment 3">
-                    </div>
-                    <div class="instagram-placeholder">
-                        <img src="https://images.unsplash.com/photo-1549576528-b0c0510e9f0f?w=300&h=300&fit=crop" alt="Class moment 4">
-                    </div>
+                    <div class="instagram-placeholder">📸</div>
+                    <div class="instagram-placeholder">💪</div>
+                    <div class="instagram-placeholder">🧘</div>
+                    <div class="instagram-placeholder">✨</div>
                 </div>
             </div>
         </div>
