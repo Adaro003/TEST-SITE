@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transform Pilates Studio</title>
+    <title>Transform Pilates - Build Power. Find Grace. Transform.</title>
     <style>
         * {
             margin: 0;
@@ -12,25 +12,33 @@
         }
 
         :root {
-            --primary: #8B5CF6;
-            --secondary: #EC4899;
-            --light: #F8F5FF;
-            --dark: #1F2937;
+            --primary: #D4A5A5;
+            --secondary: #F4B4D4;
+            --accent: #D4AF37;
+            --light-bg: #FFF8F5;
+            --dark-text: #5A4A4A;
+            --white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Georgia', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--dark);
+            color: var(--dark-text);
+            background-color: var(--light-bg);
         }
 
+        /* ===== NAVIGATION ===== */
         nav {
-            background: linear-gradient(135deg, var(--primary), #6D28D9);
+            background: linear-gradient(135deg, var(--primary), #C89BA0);
             padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(212, 165, 165, 0.2);
         }
 
         nav .container {
@@ -44,18 +52,21 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: white;
+            color: var(--white);
+            letter-spacing: 2px;
         }
 
         nav a {
-            color: white;
+            color: var(--white);
             text-decoration: none;
-            margin-left: 2rem;
-            transition: opacity 0.3s;
+            margin-left: 2.5rem;
+            transition: opacity 0.3s, text-shadow 0.3s;
+            font-weight: 500;
         }
 
         nav a:hover {
-            opacity: 0.8;
+            opacity: 0.9;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         .container {
@@ -64,54 +75,245 @@
             padding: 0 20px;
         }
 
-        .hero {
-            background: linear-gradient(135deg, var(--primary), #6D28D9);
-            color: white;
-            padding: 120px 20px;
+        /* ===== BANNER ===== */
+        .discount-banner {
+            background: linear-gradient(135deg, var(--secondary), #F699DD);
+            color: var(--dark-text);
             text-align: center;
+            padding: 15px 20px;
+            font-weight: bold;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        .discount-banner span {
+            font-size: 1.1rem;
+            display: inline-block;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), #C89BA0);
+            color: var(--white);
+            padding: 150px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(90, 74, 74, 0.1) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
+            font-weight: 700;
+            animation: fadeInDown 1s ease-out;
+            letter-spacing: 1px;
         }
 
-        .hero p {
-            font-size: 1.3rem;
+        .hero .tagline {
+            font-size: 1.5rem;
             margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.3s both;
+            font-style: italic;
+        }
+
+        .hero-buttons {
+            animation: fadeInUp 1s ease-out 0.6s both;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 14px 35px;
             background: var(--secondary);
-            color: white;
+            color: var(--dark-text);
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
             transition: all 0.3s;
-            border: none;
+            border: 2px solid var(--secondary);
             cursor: pointer;
             font-size: 1rem;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 165, 165, 0.3);
         }
 
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* ===== SECTIONS ===== */
         section {
-            padding: 80px 20px;
+            padding: 100px 20px;
         }
 
         h2 {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 3rem;
             color: var(--primary);
+            position: relative;
+            padding-bottom: 1rem;
         }
 
-        .grid {
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* ===== BENEFITS SECTION ===== */
+        .benefits {
+            background: var(--white);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, var(--light-bg), var(--white));
+            border: 2px solid var(--secondary);
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(244, 180, 212, 0.1);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(244, 180, 212, 0.2);
+            border-color: var(--accent);
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ===== INSTRUCTOR SECTION ===== */
+        .instructor {
+            background: var(--light-bg);
+        }
+
+        .instructor-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .instructor-photo {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(212, 165, 165, 0.2);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+        }
+
+        .instructor-bio {
+            padding: 2rem;
+        }
+
+        .instructor-bio h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .instructor-bio p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
+        }
+
+        .credentials {
+            background: var(--white);
+            padding: 2rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .credentials ul {
+            list-style: none;
+        }
+
+        .credentials li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #E8E8E8;
+            font-weight: 500;
+        }
+
+        .credentials li:last-child {
+            border-bottom: none;
+        }
+
+        .credentials li::before {
+            content: "✦ ";
+            color: var(--accent);
+            margin-right: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            background: var(--white);
+        }
+
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
@@ -119,61 +321,279 @@
             margin: 0 auto;
         }
 
-        .card {
-            background: white;
+        .service-card {
+            background: linear-gradient(135deg, var(--light-bg), var(--white));
             border: 2px solid var(--primary);
-            border-radius: 12px;
+            border-radius: 15px;
             padding: 2rem;
             transition: all 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.1);
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(212, 165, 165, 0.2);
+            border-color: var(--secondary);
         }
 
-        .card h3 {
+        .service-card h3 {
             color: var(--primary);
-            margin-bottom: 1rem;
             font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .about {
-            background: var(--light);
+        /* ===== SCHEDULE SECTION ===== */
+        .schedule {
+            background: var(--light-bg);
         }
 
-        .services {
-            background: white;
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
+        .time-slot {
+            background: var(--white);
+            border-left: 5px solid var(--accent);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.1);
+        }
+
+        .time-slot h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .time-slot .time {
+            color: var(--secondary);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .time-slot .level {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        /* ===== PRICING SECTION ===== */
         .pricing {
-            background: var(--light);
+            background: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 4rem;
         }
 
         .pricing-card {
-            background: white;
+            background: linear-gradient(135deg, var(--light-bg), var(--white));
             border: 2px solid var(--primary);
-            border-radius: 12px;
-            padding: 2rem;
+            border-radius: 15px;
+            padding: 2.5rem;
             text-align: center;
             transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.1);
+            position: relative;
         }
 
         .pricing-card.featured {
-            border-color: var(--secondary);
+            border-color: var(--accent);
             transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(212, 165, 165, 0.2);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .pricing-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
         }
 
         .price {
-            font-size: 2.5rem;
-            color: var(--primary);
+            font-size: 2.8rem;
+            color: var(--accent);
             font-weight: bold;
             margin: 1rem 0;
         }
 
+        .price-period {
+            color: var(--dark-text);
+            font-size: 1rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin: 1.5rem 0;
+            min-height: 150px;
+        }
+
+        .pricing-features li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #E8E8E8;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li::before {
+            content: "✓ ";
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 0.8rem;
+        }
+
+        /* ===== COMPARISON TABLE ===== */
+        .comparison-table {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(212, 165, 165, 0.15);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .comparison-table td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid #E8E8E8;
+            text-align: center;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            background: var(--light-bg);
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .comparison-table tr:hover td {
+            background: rgba(244, 180, 212, 0.1);
+        }
+
+        .check {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* ===== SOCIAL SECTION ===== */
+        .social {
+            background: var(--light-bg);
+        }
+
+        .social-content {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.2);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 30px rgba(212, 165, 165, 0.3);
+        }
+
+        .instagram-feed {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .instagram-placeholder {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            aspect-ratio: 1;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.2);
+        }
+
+        /* ===== BOOKING SECTION ===== */
         .booking {
-            background: var(--light);
+            background: var(--white);
+        }
+
+        .booking-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--light-bg);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(212, 165, 165, 0.1);
         }
 
         .form-group {
@@ -182,95 +602,190 @@
 
         label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
             font-weight: 600;
-            color: var(--dark);
+            color: var(--primary);
         }
 
         input, select, textarea {
             width: 100%;
             padding: 12px;
-            border: 2px solid #E5E7EB;
+            border: 2px solid var(--primary);
             border-radius: 8px;
             font-size: 1rem;
             font-family: inherit;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
         }
 
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: var(--primary);
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(244, 180, 212, 0.2);
         }
 
-        .booking-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+        .success-message {
+            background: #E8F5E9;
+            color: #2E7D32;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            display: none;
+            border-left: 4px solid #4CAF50;
         }
 
+        .success-message.show {
+            display: block;
+        }
+
+        /* ===== CONTACT SECTION ===== */
         .contact {
-            background: white;
+            background: var(--light-bg);
         }
 
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .contact-item {
-            background: var(--light);
+            background: var(--white);
             padding: 2rem;
-            border-radius: 12px;
-            border: 2px solid var(--primary);
+            border-radius: 15px;
+            border: 2px solid var(--secondary);
             text-align: center;
+            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.1);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
         }
 
         .contact-item h3 {
             color: var(--primary);
             margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
 
         .contact-item a {
-            color: var(--primary);
+            color: var(--secondary);
             text-decoration: none;
             font-weight: 600;
+            transition: color 0.3s;
         }
 
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        /* ===== FOOTER ===== */
         footer {
-            background: linear-gradient(135deg, var(--primary), #6D28D9);
-            color: white;
+            background: linear-gradient(135deg, var(--primary), #C89BA0);
+            color: var(--white);
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
         }
 
-        .success {
-            background: #D1FAE5;
-            color: #065F46;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-            display: none;
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .success.show {
-            display: block;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .instructor-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            nav a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .comparison-table {
+                overflow-x: auto;
+            }
+
+            section {
+                padding: 60px 15px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- DISCOUNT BANNER -->
+    <div class="discount-banner">
+        <span>🎁 LIMITED TIME: Book your first session & get 20% off your first package! Use code: WELCOME20</span>
+    </div>
+
+    <!-- NAVIGATION -->
     <nav>
         <div class="container">
-            <div class="logo">🧘 Transform Pilates</div>
+            <div class="logo">✨ TRANSFORM PILATES</div>
             <div>
                 <a href="#home">Home</a>
-                <a href="#about">About</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#instructor">About Me</a>
                 <a href="#services">Services</a>
+                <a href="#schedule">Schedule</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#booking">Book</a>
                 <a href="#contact">Contact</a>
@@ -278,110 +793,308 @@
         </div>
     </nav>
 
+    <!-- HERO SECTION -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Transform Your Body & Mind</h1>
-            <p>Professional Pilates Instruction for Strength, Flexibility & Wellness</p>
-            <a href="#booking" class="btn">Schedule Your First Session</a>
-        </div>
-    </section>
-
-    <section class="about" id="about">
-        <div class="container">
-            <h2>About Your Instructor</h2>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
-                    Welcome to Transform Pilates! I'm a certified Pilates instructor with 8+ years of experience helping clients achieve their fitness goals through personalized Pilates training.
-                </p>
-                <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-                    My approach combines classical Pilates techniques with modern fitness science to deliver real results. Whether you're a beginner or advanced practitioner, I'll create a customized program tailored to your needs.
-                </p>
-                <div style="background: white; padding: 2rem; border-radius: 12px;">
-                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Qualifications & Experience</h3>
-                    <ul style="list-style: none;">
-                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #E5E7EB;">✓ Certified Pilates Instructor (Mat & Reformer)</li>
-                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #E5E7EB;">✓ Personal Training Certification</li>
-                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #E5E7EB;">✓ Specialized in Core Strengthening & Rehabilitation</li>
-                        <li style="padding: 0.8rem 0;">✓ 8+ Years Professional Experience</li>
-                    </ul>
+            <div class="hero-content">
+                <h1>Build Power. Find Grace. Transform.</h1>
+                <p class="tagline">Your journey to strength, flexibility & confidence starts here</p>
+                <div class="hero-buttons">
+                    <a href="#booking" class="btn">🎯 Book Your First Session</a>
+                    <a href="#schedule" class="btn btn-secondary">📅 View Schedule</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- BENEFITS SECTION -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2>Transform Your Life with Pilates</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💪</div>
+                    <h3>Build Core Strength</h3>
+                    <p>Develop deep, functional strength in your core, back, and stabilizer muscles for better posture and daily movement.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧘‍♀️</div>
+                    <h3>Improve Flexibility</h3>
+                    <p>Increase your range of motion and joint mobility through controlled, flowing movements that lengthen muscles safely.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Better Posture</h3>
+                    <p>Correct imbalances and bad habits to stand taller, feel more confident, and eliminate chronic pain from poor alignment.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✨</div>
+                    <h3>Lean Muscle Definition</h3>
+                    <p>Sculpt long, lean muscles through low-impact resistance training that tones without bulk or joint strain.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧠</div>
+                    <h3>Mental Clarity</h3>
+                    <p>Connect mind and body in a mindful practice that reduces stress, improves focus, and boosts mental wellness.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Increased Energy</h3>
+                    <p>Feel more energized and vibrant as you strengthen your body, improve circulation, and enhance overall vitality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTRUCTOR SECTION -->
+    <section class="instructor" id="instructor">
+        <div class="container">
+            <h2>Meet Your Instructor</h2>
+            <div class="instructor-content">
+                <div class="instructor-photo">📸</div>
+                <div class="instructor-bio">
+                    <h3>Your Pilates Journey Begins With Me</h3>
+                    <p>
+                        Hi! I'm a certified Pilates instructor passionate about helping women discover their strength, grace, and confidence through personalized training. With 8+ years of professional experience, I've transformed the lives of hundreds of clients.
+                    </p>
+                    <p>
+                        My journey started when I realized how Pilates changed not just my body, but my entire outlook on life. That's why I'm dedicated to creating a welcoming, judgment-free space where every client feels supported and celebrated.
+                    </p>
+                    <p>
+                        Whether you're recovering from an injury, looking to tone up, or simply wanting to feel stronger—I'll create a customized program designed specifically for YOU.
+                    </p>
+                    <div class="credentials">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">My Credentials & Specialties</h4>
+                        <ul>
+                            <li>Certified Pilates Instructor (Comprehensive Mat & Reformer)</li>
+                            <li>Personal Training Certification (NASM)</li>
+                            <li>Specialized in Post-Injury Rehabilitation</li>
+                            <li>Expert in Core Strengthening & Postural Correction</li>
+                            <li>Advanced Reformer Techniques Certification</li>
+                            <li>8+ Years Professional Experience</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
     <section class="services" id="services">
         <div class="container">
-            <h2>Services Offered</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Mat Pilates</h3>
-                    <p>Foundational Pilates using body weight and minimal props. Perfect for beginners and building core strength.</p>
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🧘‍♀️ Mat Pilates</h3>
+                    <p>Foundational Pilates using body weight and minimal props. Perfect for beginners and building core strength from the ground up.</p>
                 </div>
-                <div class="card">
-                    <h3>Reformer Pilates</h3>
-                    <p>Advanced training using specialized equipment for enhanced resistance and deeper muscle engagement.</p>
+                <div class="service-card">
+                    <h3>⚙️ Reformer Pilates</h3>
+                    <p>Advanced training using specialized equipment for enhanced resistance and deeper muscle engagement. Perfect for next-level results.</p>
                 </div>
-                <div class="card">
-                    <h3>Private Sessions</h3>
-                    <p>One-on-one personalized instruction tailored to your goals, fitness level, and physical needs.</p>
+                <div class="service-card">
+                    <h3>👥 Private Sessions</h3>
+                    <p>One-on-one personalized instruction tailored to your goals, fitness level, and any physical limitations or injuries.</p>
                 </div>
-                <div class="card">
-                    <h3>Group Classes</h3>
-                    <p>Join our community classes for motivation, affordability, and a supportive fitness environment.</p>
+                <div class="service-card">
+                    <h3>👫 Group Classes</h3>
+                    <p>Join our community classes for motivation, affordability, and a supportive fitness environment with other women.</p>
                 </div>
-                <div class="card">
-                    <h3>Rehabilitation</h3>
-                    <p>Post-injury recovery programs designed with your physical therapist's recommendations in mind.</p>
+                <div class="service-card">
+                    <h3>🏥 Rehabilitation</h3>
+                    <p>Specialized post-injury recovery programs designed with your physical therapist's recommendations in mind.</p>
                 </div>
-                <div class="card">
-                    <h3>Corporate Wellness</h3>
-                    <p>On-site Pilates classes for companies looking to improve employee health and wellness.</p>
+                <div class="service-card">
+                    <h3>🏢 Corporate Wellness</h3>
+                    <p>On-site Pilates classes for companies looking to improve employee health, wellness, and workplace happiness.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SCHEDULE SECTION -->
+    <section class="schedule" id="schedule">
+        <div class="container">
+            <h2>Class Schedule</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--dark-text);">Join classes throughout the week at times that work for you</p>
+            <div class="schedule-grid">
+                <div class="time-slot">
+                    <h4>Monday & Wednesday</h4>
+                    <div class="time">6:00 AM - 7:00 AM</div>
+                    <p>Morning Energizer - Mat Pilates</p>
+                    <span class="level">Beginner-Intermediate</span>
+                </div>
+                <div class="time-slot">
+                    <h4>Tuesday & Thursday</h4>
+                    <div class="time">10:00 AM - 11:00 AM</div>
+                    <p>Mid-Morning Flow - Reformer</p>
+                    <span class="level">Intermediate-Advanced</span>
+                </div>
+                <div class="time-slot">
+                    <h4>Tuesday & Thursday</h4>
+                    <div class="time">5:30 PM - 6:30 PM</div>
+                    <p>Evening Strengthen - Mat Pilates</p>
+                    <span class="level">All Levels</span>
+                </div>
+                <div class="time-slot">
+                    <h4>Saturday</h4>
+                    <div class="time">9:00 AM - 10:00 AM</div>
+                    <p>Weekend Power - Reformer</p>
+                    <span class="level">All Levels</span>
+                </div>
+                <div class="time-slot">
+                    <h4>Saturday</h4>
+                    <div class="time">10:30 AM - 11:30 AM</div>
+                    <p>Saturday Stretch - Mat Pilates</p>
+                    <span class="level">Beginner-Intermediate</span>
+                </div>
+                <div class="time-slot">
+                    <h4>Available</h4>
+                    <div class="time">By Appointment</div>
+                    <p>Private Sessions - Customize Your Time</p>
+                    <span class="level">All Levels</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <h2>Pricing Plans</h2>
-            <div class="grid">
+            <h2>Flexible Pricing Plans</h2>
+            <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3>Single Session</h3>
-                    <div class="price">$60</div>
-                    <ul style="list-style: none; text-align: left;">
-                        <li style="padding: 0.5rem 0;">✓ 60-minute session</li>
-                        <li style="padding: 0.5rem 0;">✓ Personalized assessment</li>
-                        <li style="padding: 0.5rem 0;">✓ Customized plan</li>
+                    <div class="price">$60<span class="price-period">/session</span></div>
+                    <ul class="pricing-features">
+                        <li>60-minute private session</li>
+                        <li>Personalized assessment</li>
+                        <li>Customized workout plan</li>
+                        <li>Professional guidance</li>
                     </ul>
-                    <a href="#booking" class="btn" style="margin-top: 1rem;">Book Now</a>
+                    <a href="#booking" class="btn">Book Now</a>
                 </div>
                 <div class="pricing-card featured">
-                    <h3>⭐ 5-Session Package</h3>
-                    <div class="price">$275</div>
-                    <ul style="list-style: none; text-align: left;">
-                        <li style="padding: 0.5rem 0;">✓ 5 sessions ($55 each)</li>
-                        <li style="padding: 0.5rem 0;">✓ Valid 6 months</li>
-                        <li style="padding: 0.5rem 0;">✓ Progress tracking</li>
+                    <div class="pricing-badge">⭐ MOST POPULAR</div>
+                    <h3>5-Session Package</h3>
+                    <div class="price">$275<span class="price-period">$55 each</span></div>
+                    <ul class="pricing-features">
+                        <li>5 × 60-minute sessions</li>
+                        <li>$55 per session (8% savings)</li>
+                        <li>Valid for 6 months</li>
+                        <li>Progress tracking included</li>
+                        <li>Flexible scheduling</li>
                     </ul>
-                    <a href="#booking" class="btn" style="margin-top: 1rem;">Book Now</a>
+                    <a href="#booking" class="btn">Book Package</a>
                 </div>
                 <div class="pricing-card">
                     <h3>10-Session Package</h3>
-                    <div class="price">$500</div>
-                    <ul style="list-style: none; text-align: left;">
-                        <li style="padding: 0.5rem 0;">✓ 10 sessions ($50 each)</li>
-                        <li style="padding: 0.5rem 0;">✓ Valid 12 months</li>
-                        <li style="padding: 0.5rem 0;">✓ Unlimited adjustments</li>
+                    <div class="price">$500<span class="price-period">$50 each</span></div>
+                    <ul class="pricing-features">
+                        <li>10 × 60-minute sessions</li>
+                        <li>$50 per session (17% savings)</li>
+                        <li>Valid for 12 months</li>
+                        <li>Unlimited adjustments</li>
+                        <li>Priority booking</li>
                     </ul>
-                    <a href="#booking" class="btn" style="margin-top: 1rem;">Book Now</a>
+                    <a href="#booking" class="btn">Book Package</a>
+                </div>
+            </div>
+
+            <!-- COMPARISON TABLE -->
+            <h2 style="margin-top: 4rem; margin-bottom: 2rem;">Package Comparison</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Single Session</th>
+                            <th>5-Session Package</th>
+                            <th>10-Session Package</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Session Length</td>
+                            <td><span class="check">✓</span> 60 min</td>
+                            <td><span class="check">✓</span> 60 min</td>
+                            <td><span class="check">✓</span> 60 min</td>
+                        </tr>
+                        <tr>
+                            <td>One-on-One Training</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Personalized Plan</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Flexibility (6 months)</td>
+                            <td>Valid anytime</td>
+                            <td><span class="check">✓</span></td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Flexibility (12 months)</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Progress Tracking</td>
+                            <td>-</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Priority Booking</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Cost per Session</td>
+                            <td>$60</td>
+                            <td>$55 (8% off)</td>
+                            <td>$50 (17% off)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL MEDIA SECTION -->
+    <section class="social" id="social">
+        <div class="container">
+            <div class="social-content">
+                <h2>Follow Our Journey</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">Join our community and see real transformations, class highlights, and wellness tips!</p>
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" class="social-link" title="Instagram">📸</a>
+                    <a href="https://facebook.com" target="_blank" class="social-link" title="Facebook">f</a>
+                    <a href="https://tiktok.com" target="_blank" class="social-link" title="TikTok">♪</a>
+                    <a href="https://youtube.com" target="_blank" class="social-link" title="YouTube">▶</a>
+                </div>
+                <h3 style="margin-top: 3rem; color: var(--primary);">Latest From Instagram</h3>
+                <div class="instagram-feed">
+                    <div class="instagram-placeholder">📷</div>
+                    <div class="instagram-placeholder">💪</div>
+                    <div class="instagram-placeholder">🎯</div>
+                    <div class="instagram-placeholder">✨</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- BOOKING SECTION -->
     <section class="booking" id="booking">
         <div class="container">
-            <h2>Book Your Session</h2>
+            <h2>Book Your Session Today</h2>
             <form class="booking-form" id="bookingForm">
                 <div class="form-group">
                     <label for="name">Full Name *</label>
@@ -404,7 +1117,6 @@
                         <option value="private">Private Session</option>
                         <option value="group">Group Class</option>
                         <option value="rehab">Rehabilitation</option>
-                        <option value="corporate">Corporate Wellness</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -416,34 +1128,31 @@
                     <select id="time" required>
                         <option value="">-- Select Time --</option>
                         <option value="6:00 AM">6:00 AM</option>
-                        <option value="7:00 AM">7:00 AM</option>
-                        <option value="8:00 AM">8:00 AM</option>
                         <option value="10:00 AM">10:00 AM</option>
-                        <option value="12:00 PM">12:00 PM</option>
-                        <option value="2:00 PM">2:00 PM</option>
-                        <option value="4:00 PM">4:00 PM</option>
-                        <option value="6:00 PM">6:00 PM</option>
+                        <option value="5:30 PM">5:30 PM</option>
+                        <option value="9:00 AM Saturday">9:00 AM (Saturday)</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="experience">Experience Level *</label>
                     <select id="experience" required>
                         <option value="">-- Select Level --</option>
-                        <option value="Beginner">Beginner</option>
-                        <option value="Intermediate">Intermediate</option>
-                        <option value="Advanced">Advanced</option>
+                        <option value="Beginner">Beginner (New to Pilates)</option>
+                        <option value="Intermediate">Intermediate (Some Experience)</option>
+                        <option value="Advanced">Advanced (Regular Practitioner)</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="message">Additional Notes</label>
-                    <textarea id="message" rows="4" placeholder="Any injuries or special requests?"></textarea>
+                    <textarea id="message" rows="4" placeholder="Any injuries, goals, or special requests?"></textarea>
                 </div>
-                <button type="submit" class="btn" style="width: 100%;">Submit Booking Request</button>
-                <div class="success" id="successMsg">✓ Booking submitted! We'll confirm within 24 hours.</div>
+                <button type="submit" class="btn" style="width: 100%; padding: 15px;">Submit Booking Request</button>
+                <div class="success-message" id="successMsg">✓ Booking submitted! We'll confirm within 24 hours. Check your email for next steps!</div>
             </form>
         </div>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section class="contact" id="contact">
         <div class="container">
             <h2>Get In Touch</h2>
@@ -462,14 +1171,16 @@
                 </div>
                 <div class="contact-item">
                     <h3>🕐 Hours</h3>
-                    <p>Mon-Fri: 6 AM - 7 PM<br>Sat-Sun: 8 AM - 2 PM</p>
+                    <p>Mon-Fri: 6 AM - 7 PM<br>Sat: 8 AM - 12 PM<br>Sun: Closed</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2024 Transform Pilates. Dedicated to your health & wellness.</p>
+        <p>&copy; 2024 Transform Pilates. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.9;">Dedicated to your strength, grace, and transformation.</p>
     </footer>
 
     <script>
@@ -500,7 +1211,7 @@
             
             setTimeout(() => {
                 successMsg.classList.remove('show');
-            }, 5000);
+            }, 6000);
         });
 
         document.getElementById('date').min = new Date().toISOString().split('T')[0];
