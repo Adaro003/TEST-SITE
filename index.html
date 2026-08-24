@@ -29,61 +29,28 @@
             line-height: 1.6;
             color: var(--dark-text);
             background-color: var(--light-bg);
-        }
-
-        /* ===== NAVIGATION ===== */
-        nav {
-            background: linear-gradient(135deg, var(--primary), #C89BA0);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(212, 165, 165, 0.2);
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            min-height: 100vh;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--white);
-            letter-spacing: 2px;
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            margin-left: 2.5rem;
-            transition: opacity 0.3s, text-shadow 0.3s;
-            font-weight: 500;
-        }
-
-        nav a:hover {
-            opacity: 0.9;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            justify-content: center;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            width: 100%;
         }
 
         /* ===== HERO SECTION ===== */
         .hero {
             background: linear-gradient(135deg, var(--primary), #C89BA0), linear-gradient(45deg, #F4B4D4, #D4A5A5);
             color: var(--white);
-            padding: 150px 20px;
+            padding: 100px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 600px;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -115,24 +82,123 @@
 
         .hero .tagline {
             font-size: 1.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             opacity: 0.95;
             animation: fadeInUp 1s ease-out 0.3s both;
             font-style: italic;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .hero-buttons {
-            animation: fadeInUp 1s ease-out 0.6s both;
+        /* ===== CAROUSEL ===== */
+        .carousel {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin: 2rem 0 3rem 0;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .carousel-item {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .carousel-item.active {
+            display: block;
+        }
+
+        .carousel-item h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .carousel-item p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .carousel-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-btn {
+            background: var(--white);
+            color: var(--primary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .carousel-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--white);
+            transform: scale(1.3);
+        }
+
+        /* ===== DISCOUNT CODE ===== */
+        .discount-section {
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .discount-code {
+            background: var(--accent);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            letter-spacing: 1px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-group {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s both;
         }
 
         .btn {
             display: inline-block;
-            padding: 14px 35px;
+            padding: 15px 40px;
             background: var(--secondary);
             color: var(--dark-text);
             text-decoration: none;
@@ -141,13 +207,12 @@
             transition: all 0.3s;
             border: 2px solid var(--secondary);
             cursor: pointer;
-            font-size: 1rem;
-            position: relative;
+            font-size: 1.1rem;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(212, 165, 165, 0.3);
+            box-shadow: 0 15px 40px rgba(244, 180, 212, 0.4);
         }
 
         .btn-secondary {
@@ -161,554 +226,117 @@
             color: var(--primary);
         }
 
-        /* ===== DISCOUNT BADGE ===== */
-        .discount-badge {
-            position: absolute;
-            top: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--accent), #E8C547);
-            color: var(--white);
-            padding: 6px 14px;
+        /* ===== MODALS ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--white);
             border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            white-space: nowrap;
-            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
-            letter-spacing: 0.5px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease-out;
         }
 
-        /* ===== SECTIONS ===== */
-        section {
-            padding: 100px 20px;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 3rem;
-            color: var(--primary);
-            position: relative;
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--secondary);
             padding-bottom: 1rem;
         }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        /* ===== BENEFITS SECTION ===== */
-        .benefits {
-            background: var(--white);
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .benefit-card {
-            background: linear-gradient(135deg, var(--light-bg), var(--white));
-            border: 2px solid var(--secondary);
-            border-radius: 15px;
-            padding: 2.5rem;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(244, 180, 212, 0.1);
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(244, 180, 212, 0.2);
-            border-color: var(--accent);
-        }
-
-        .benefit-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .benefit-card h3 {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* ===== INSTRUCTOR SECTION ===== */
-        .instructor {
-            background: var(--light-bg);
-        }
-
-        .instructor-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .instructor-photo {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(212, 165, 165, 0.2);
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 8rem;
-        }
-
-        .instructor-bio {
-            padding: 2rem;
-        }
-
-        .instructor-bio h3 {
+        .modal-header h2 {
             color: var(--primary);
             font-size: 2rem;
-            margin-bottom: 1rem;
+            margin: 0;
         }
 
-        .instructor-bio p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            margin: 2rem 0;
             color: var(--dark-text);
+            line-height: 1.8;
         }
 
-        .credentials {
-            background: var(--white);
-            padding: 2rem;
-            border-left: 4px solid var(--accent);
-            border-radius: 8px;
-            margin-top: 2rem;
-        }
-
-        .credentials ul {
-            list-style: none;
-        }
-
-        .credentials li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #E8E8E8;
-            font-weight: 500;
-        }
-
-        .credentials li:last-child {
-            border-bottom: none;
-        }
-
-        .credentials li::before {
-            content: "✦ ";
-            color: var(--accent);
-            margin-right: 0.8rem;
-            font-weight: bold;
-        }
-
-        /* ===== SERVICES SECTION ===== */
-        .services {
-            background: var(--white);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, var(--light-bg), var(--white));
-            border: 2px solid var(--primary);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(212, 165, 165, 0.2);
-            border-color: var(--secondary);
-        }
-
-        .service-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
-
-        .service-content {
-            padding: 2rem;
-        }
-
-        .service-card h3 {
+        .modal-body h3 {
             color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        /* ===== SCHEDULE SECTION ===== */
-        .schedule {
+        .modal-body p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .modal-item {
             background: var(--light-bg);
-        }
-
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .time-slot {
-            background: var(--white);
-            border-left: 5px solid var(--accent);
+            padding: 1.5rem;
             border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.1);
-        }
-
-        .time-slot h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .time-slot .time {
-            color: var(--secondary);
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .time-slot .level {
-            display: inline-block;
-            background: var(--secondary);
-            color: var(--white);
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-top: 1rem;
-        }
-
-        /* ===== PRICING SECTION ===== */
-        .pricing {
-            background: var(--white);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            margin-bottom: 4rem;
-        }
-
-        .pricing-card {
-            background: linear-gradient(135deg, var(--light-bg), var(--white));
-            border: 2px solid var(--primary);
-            border-radius: 15px;
-            padding: 2.5rem;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.1);
-            position: relative;
-        }
-
-        .pricing-card.featured {
-            border-color: var(--accent);
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(212, 165, 165, 0.2);
-        }
-
-        .pricing-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent);
-            color: var(--white);
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        .pricing-card h3 {
-            color: var(--primary);
-            font-size: 1.5rem;
             margin-bottom: 1rem;
-            margin-top: 1rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .modal-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .modal-item p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
         }
 
         .price {
-            font-size: 2.8rem;
             color: var(--accent);
             font-weight: bold;
-            margin: 1rem 0;
-        }
-
-        .price-period {
-            color: var(--dark-text);
-            font-size: 1rem;
-        }
-
-        .pricing-features {
-            list-style: none;
-            text-align: left;
-            margin: 1.5rem 0;
-            min-height: 150px;
-        }
-
-        .pricing-features li {
-            padding: 0.7rem 0;
-            border-bottom: 1px solid #E8E8E8;
-        }
-
-        .pricing-features li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-features li::before {
-            content: "✓ ";
-            color: var(--accent);
-            font-weight: bold;
-            margin-right: 0.8rem;
-        }
-
-        /* ===== COMPARISON TABLE ===== */
-        .comparison-table {
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(212, 165, 165, 0.15);
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .comparison-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .comparison-table th {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 1.5rem;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .comparison-table td {
-            padding: 1.2rem 1.5rem;
-            border-bottom: 1px solid #E8E8E8;
-            text-align: center;
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .comparison-table td:first-child {
-            text-align: left;
-            background: var(--light-bg);
-            font-weight: 500;
-            color: var(--primary);
-        }
-
-        .comparison-table tr:hover td {
-            background: rgba(244, 180, 212, 0.1);
-        }
-
-        .check {
-            color: var(--accent);
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        /* ===== SOCIAL SECTION ===== */
-        .social {
-            background: var(--light-bg);
-        }
-
-        .social-content {
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            color: var(--white);
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.2);
-        }
-
-        .social-link:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 10px 30px rgba(212, 165, 165, 0.3);
-        }
-
-        .instagram-feed {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .instagram-placeholder {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            aspect-ratio: 1;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.2);
-        }
-
-        /* ===== BOOKING SECTION ===== */
-        .booking {
-            background: var(--white);
-        }
-
-        .booking-form {
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--light-bg);
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(212, 165, 165, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.7rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid var(--primary);
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: all 0.3s;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(244, 180, 212, 0.2);
-        }
-
-        .success-message {
-            background: #E8F5E9;
-            color: #2E7D32;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-top: 1.5rem;
-            display: none;
-            border-left: 4px solid #4CAF50;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
-        /* ===== CONTACT SECTION ===== */
-        .contact {
-            background: var(--light-bg);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-item {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 2px solid var(--secondary);
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.1);
-            transition: all 0.3s;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .contact-item h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
             font-size: 1.3rem;
         }
 
-        .contact-item a {
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
+        .modal-footer {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
         }
 
-        .contact-item a:hover {
-            color: var(--accent);
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: linear-gradient(135deg, var(--primary), #C89BA0);
-            color: var(--white);
+        .modal-footer .btn {
+            flex: 1;
             text-align: center;
-            padding: 2.5rem;
         }
 
         /* ===== ANIMATIONS ===== */
@@ -734,6 +362,26 @@
             }
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .hero h1 {
@@ -744,7 +392,19 @@
                 font-size: 1.2rem;
             }
 
-            .hero-buttons {
+            .carousel {
+                padding: 2rem 1rem;
+            }
+
+            .carousel-item h3 {
+                font-size: 1.5rem;
+            }
+
+            .carousel-item p {
+                font-size: 1rem;
+            }
+
+            .btn-group {
                 flex-direction: column;
             }
 
@@ -752,495 +412,242 @@
                 width: 100%;
             }
 
-            h2 {
-                font-size: 2rem;
-            }
-
-            .instructor-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-
-            nav a {
-                margin-left: 1rem;
-                font-size: 0.9rem;
-            }
-
-            .comparison-table {
-                overflow-x: auto;
-            }
-
-            section {
-                padding: 60px 15px;
+            .modal-content {
+                padding: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="container">
-            <div class="logo">✨ TRANSFORM PILATES</div>
-            <div>
-                <a href="#home">Home</a>
-                <a href="#benefits">Benefits</a>
-                <a href="#instructor">About Me</a>
-                <a href="#services">Services</a>
-                <a href="#schedule">Schedule</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#booking">Book</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Build Power. Find Grace. Transform.</h1>
                 <p class="tagline">Your journey to strength, flexibility & confidence starts here</p>
-                <div class="hero-buttons">
-                    <a href="#booking" class="btn">
-                        <span class="discount-badge">20% OFF - WELCOME20</span>
-                        🧘 Book Your First Session
-                    </a>
-                    <a href="#schedule" class="btn btn-secondary">📅 View Schedule</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- BENEFITS SECTION -->
-    <section class="benefits" id="benefits">
-        <div class="container">
-            <h2>Transform Your Life with Pilates</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">💪</div>
-                    <h3>Build Core Strength</h3>
-                    <p>Develop deep, functional strength in your core, back, and stabilizer muscles for better posture and daily movement.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🧘‍♀️</div>
-                    <h3>Improve Flexibility</h3>
-                    <p>Increase your range of motion and joint mobility through controlled, flowing movements that lengthen muscles safely.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🏃</div>
-                    <h3>Better Posture</h3>
-                    <p>Correct imbalances and bad habits to stand taller, feel more confident, and eliminate chronic pain from poor alignment.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">✨</div>
-                    <h3>Lean Muscle Definition</h3>
-                    <p>Sculpt long, lean muscles through low-impact resistance training that tones without bulk or joint strain.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🧠</div>
-                    <h3>Mental Clarity</h3>
-                    <p>Connect mind and body in a mindful practice that reduces stress, improves focus, and boosts mental wellness.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>Increased Energy</h3>
-                    <p>Feel more energized and vibrant as you strengthen your body, improve circulation, and enhance overall vitality.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                <!-- CAROUSEL -->
+                <div class="carousel">
+                    <!-- Classes Carousel Item -->
+                    <div class="carousel-item active">
+                        <div class="carousel-icon">🧘‍♀️</div>
+                        <h3>Our Classes</h3>
+                        <p>Explore our range of pilates classes designed for all levels. From beginner-friendly mat pilates to advanced reformer training.</p>
+                        <button class="btn" onclick="openModal('classesModal')">Explore Classes</button>
+                    </div>
 
-    <!-- INSTRUCTOR SECTION -->
-    <section class="instructor" id="instructor">
-        <div class="container">
-            <h2>Meet Your Instructor</h2>
-            <div class="instructor-content">
-                <div class="instructor-photo">👩‍🏫</div>
-                <div class="instructor-bio">
-                    <h3>Your Pilates Journey Begins With Me</h3>
-                    <p>
-                        Hi! I'm a certified Pilates instructor passionate about helping women discover their strength, grace, and confidence through personalized training. With 8+ years of professional experience, I've transformed the lives of hundreds of clients.
-                    </p>
-                    <p>
-                        My journey started when I realized how Pilates changed not just my body, but my entire outlook on life. That's why I'm dedicated to creating a welcoming, judgment-free space where every client feels supported and celebrated.
-                    </p>
-                    <p>
-                        Whether you're recovering from an injury, looking to tone up, or simply wanting to feel stronger—I'll create a customized program designed specifically for YOU.
-                    </p>
-                    <div class="credentials">
-                        <h4 style="color: var(--primary); margin-bottom: 1rem;">My Credentials & Specialties</h4>
-                        <ul>
-                            <li>Certified Pilates Instructor (Comprehensive Mat & Reformer)</li>
-                            <li>Personal Training Certification (NASM)</li>
-                            <li>Specialized in Post-Injury Rehabilitation</li>
-                            <li>Expert in Core Strengthening & Postural Correction</li>
-                            <li>Advanced Reformer Techniques Certification</li>
-                            <li>8+ Years Professional Experience</li>
-                        </ul>
+                    <!-- Instructors Carousel Item -->
+                    <div class="carousel-item">
+                        <div class="carousel-icon">👩‍🏫</div>
+                        <h3>Meet Our Instructors</h3>
+                        <p>Certified professionals dedicated to your transformation. Learn more about our team and find the perfect instructor for you.</p>
+                        <button class="btn" onclick="openModal('instructorsModal')">Learn More</button>
+                    </div>
+
+                    <!-- Events Carousel Item -->
+                    <div class="carousel-item">
+                        <div class="carousel-icon">📅</div>
+                        <h3>Upcoming Events</h3>
+                        <p>Join us for workshops, special events, and community gatherings. Build connections while transforming your fitness.</p>
+                        <button class="btn" onclick="openModal('eventsModal')">View Events</button>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <div class="carousel-controls">
+                        <button class="carousel-btn" onclick="prevCarousel()">← Previous</button>
+                        <button class="carousel-btn" onclick="nextCarousel()">Next →</button>
+                    </div>
+
+                    <!-- Carousel Dots -->
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="goToSlide(0)"></span>
+                        <span class="dot" onclick="goToSlide(1)"></span>
+                        <span class="dot" onclick="goToSlide(2)"></span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- SERVICES SECTION -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image">🧘‍♀️</div>
-                    <div class="service-content">
-                        <h3>Mat Pilates</h3>
-                        <p>Foundational Pilates using body weight and minimal props. Perfect for beginners and building core strength from the ground up.</p>
-                    </div>
+                <!-- DISCOUNT CODE -->
+                <div class="discount-section">
+                    <div class="discount-code">🎁 20% OFF - Use Code: WELCOME20</div>
                 </div>
-                <div class="service-card">
-                    <div class="service-image">⚙️</div>
-                    <div class="service-content">
-                        <h3>Reformer Pilates</h3>
-                        <p>Advanced training using specialized equipment for enhanced resistance and deeper muscle engagement. Perfect for next-level results.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">👥</div>
-                    <div class="service-content">
-                        <h3>Private Sessions</h3>
-                        <p>One-on-one personalized instruction tailored to your goals, fitness level, and any physical limitations or injuries.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">👫</div>
-                    <div class="service-content">
-                        <h3>Group Classes</h3>
-                        <p>Join our community classes for motivation, affordability, and a supportive fitness environment with other women.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">🏥</div>
-                    <div class="service-content">
-                        <h3>Rehabilitation</h3>
-                        <p>Specialized post-injury recovery programs designed with your physical therapist's recommendations in mind.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">🏢</div>
-                    <div class="service-content">
-                        <h3>Corporate Wellness</h3>
-                        <p>On-site Pilates classes for companies looking to improve employee health, wellness, and workplace happiness.</p>
-                    </div>
+
+                <!-- ACTION BUTTONS -->
+                <div class="btn-group">
+                    <button class="btn" onclick="openModal('classesModal')">🧘 Book a Class</button>
+                    <button class="btn btn-secondary" onclick="alert('Contact us at info@transformpilates.com')">📞 Contact Us</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SCHEDULE SECTION -->
-    <section class="schedule" id="schedule">
-        <div class="container">
-            <h2>Class Schedule</h2>
-            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--dark-text);">Join classes throughout the week at times that work for you</p>
-            <div class="schedule-grid">
-                <div class="time-slot">
-                    <h4>Monday & Wednesday</h4>
-                    <div class="time">6:00 AM - 7:00 AM</div>
-                    <p>Morning Energizer - Mat Pilates</p>
-                    <span class="level">Beginner-Intermediate</span>
+    <!-- ===== MODALS ===== -->
+
+    <!-- CLASSES MODAL -->
+    <div id="classesModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🧘‍♀️ Our Classes</h2>
+                <button class="close-btn" onclick="closeModal('classesModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-item">
+                    <h4>Mat Pilates</h4>
+                    <p>Foundational Pilates using body weight and minimal props.</p>
+                    <p><strong>Level:</strong> Beginner-Intermediate</p>
+                    <p><strong>Duration:</strong> 60 minutes</p>
+                    <p class="price">$60 per session</p>
                 </div>
-                <div class="time-slot">
-                    <h4>Tuesday & Thursday</h4>
-                    <div class="time">10:00 AM - 11:00 AM</div>
-                    <p>Mid-Morning Flow - Reformer</p>
-                    <span class="level">Intermediate-Advanced</span>
+                <div class="modal-item">
+                    <h4>Reformer Pilates</h4>
+                    <p>Advanced training using specialized equipment for enhanced resistance.</p>
+                    <p><strong>Level:</strong> Intermediate-Advanced</p>
+                    <p><strong>Duration:</strong> 60 minutes</p>
+                    <p class="price">$75 per session</p>
                 </div>
-                <div class="time-slot">
-                    <h4>Tuesday & Thursday</h4>
-                    <div class="time">5:30 PM - 6:30 PM</div>
-                    <p>Evening Strengthen - Mat Pilates</p>
-                    <span class="level">All Levels</span>
+                <div class="modal-item">
+                    <h4>Private Sessions</h4>
+                    <p>One-on-one personalized instruction tailored to your goals.</p>
+                    <p><strong>Level:</strong> All Levels</p>
+                    <p><strong>Duration:</strong> 60 minutes</p>
+                    <p class="price">$90 per session</p>
                 </div>
-                <div class="time-slot">
-                    <h4>Saturday</h4>
-                    <div class="time">9:00 AM - 10:00 AM</div>
-                    <p>Weekend Power - Reformer</p>
-                    <span class="level">All Levels</span>
-                </div>
-                <div class="time-slot">
-                    <h4>Saturday</h4>
-                    <div class="time">10:30 AM - 11:30 AM</div>
-                    <p>Saturday Stretch - Mat Pilates</p>
-                    <span class="level">Beginner-Intermediate</span>
-                </div>
-                <div class="time-slot">
-                    <h4>Available</h4>
-                    <div class="time">By Appointment</div>
-                    <p>Private Sessions - Customize Your Time</p>
-                    <span class="level">All Levels</span>
+                <div class="modal-item">
+                    <h4>Group Classes</h4>
+                    <p>Join our community for motivation and support.</p>
+                    <p><strong>Level:</strong> All Levels</p>
+                    <p><strong>Duration:</strong> 60 minutes</p>
+                    <p class="price">$45 per class</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- PRICING SECTION -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <h2>Flexible Pricing Plans</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Single Session</h3>
-                    <div class="price">$60<span class="price-period">/session</span></div>
-                    <ul class="pricing-features">
-                        <li>60-minute private session</li>
-                        <li>Personalized assessment</li>
-                        <li>Customized workout plan</li>
-                        <li>Professional guidance</li>
-                    </ul>
-                    <a href="#booking" class="btn">Book Now</a>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-badge">⭐ MOST POPULAR</div>
-                    <h3>5-Session Package</h3>
-                    <div class="price">$275<span class="price-period">$55 each</span></div>
-                    <ul class="pricing-features">
-                        <li>5 × 60-minute sessions</li>
-                        <li>$55 per session (8% savings)</li>
-                        <li>Valid for 6 months</li>
-                        <li>Progress tracking included</li>
-                        <li>Flexible scheduling</li>
-                    </ul>
-                    <a href="#booking" class="btn">Book Package</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>10-Session Package</h3>
-                    <div class="price">$500<span class="price-period">$50 each</span></div>
-                    <ul class="pricing-features">
-                        <li>10 × 60-minute sessions</li>
-                        <li>$50 per session (17% savings)</li>
-                        <li>Valid for 12 months</li>
-                        <li>Unlimited adjustments</li>
-                        <li>Priority booking</li>
-                    </ul>
-                    <a href="#booking" class="btn">Book Package</a>
-                </div>
-            </div>
-
-            <!-- COMPARISON TABLE -->
-            <h2 style="margin-top: 4rem; margin-bottom: 2rem;">Package Comparison</h2>
-            <div class="comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Single Session</th>
-                            <th>5-Session Package</th>
-                            <th>10-Session Package</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Session Length</td>
-                            <td><span class="check">✓</span> 60 min</td>
-                            <td><span class="check">✓</span> 60 min</td>
-                            <td><span class="check">✓</span> 60 min</td>
-                        </tr>
-                        <tr>
-                            <td>One-on-One Training</td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                        </tr>
-                        <tr>
-                            <td>Personalized Plan</td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                        </tr>
-                        <tr>
-                            <td>Flexibility (6 months)</td>
-                            <td>Valid anytime</td>
-                            <td><span class="check">✓</span></td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>Flexibility (12 months)</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td><span class="check">✓</span></td>
-                        </tr>
-                        <tr>
-                            <td>Progress Tracking</td>
-                            <td>-</td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                        </tr>
-                        <tr>
-                            <td>Priority Booking</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td><span class="check">✓</span></td>
-                        </tr>
-                        <tr>
-                            <td>Cost per Session</td>
-                            <td>$60</td>
-                            <td>$55 (8% off)</td>
-                            <td>$50 (17% off)</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="modal-footer">
+                <button class="btn" onclick="alert('Booking system coming soon!')">Book Now</button>
+                <button class="btn btn-secondary" onclick="closeModal('classesModal')">Cancel</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- SOCIAL MEDIA SECTION -->
-    <section class="social" id="social">
-        <div class="container">
-            <div class="social-content">
-                <h2>Follow Our Journey</h2>
-                <p style="font-size: 1.1rem; margin-bottom: 2rem;">Join our community and see real transformations, class highlights, and wellness tips!</p>
-                <div class="social-links">
-                    <a href="https://instagram.com" target="_blank" class="social-link" title="Instagram">📸</a>
-                    <a href="https://facebook.com" target="_blank" class="social-link" title="Facebook">f</a>
-                    <a href="https://tiktok.com" target="_blank" class="social-link" title="TikTok">♪</a>
-                    <a href="https://youtube.com" target="_blank" class="social-link" title="YouTube">▶</a>
+    <!-- INSTRUCTORS MODAL -->
+    <div id="instructorsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>👩‍🏫 Our Instructors</h2>
+                <button class="close-btn" onclick="closeModal('instructorsModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-item">
+                    <h4>Sarah Johnson 👩‍🏫</h4>
+                    <p><strong>Specialties:</strong> Mat Pilates, Core Strengthening</p>
+                    <p><strong>Experience:</strong> 8+ years</p>
+                    <p><strong>Certifications:</strong> NASM, Pilates Mat & Reformer</p>
+                    <p>Passionate about helping clients discover their inner strength and transform their bodies through mindful movement.</p>
                 </div>
-                <h3 style="margin-top: 3rem; color: var(--primary);">Latest From Instagram</h3>
-                <div class="instagram-feed">
-                    <div class="instagram-placeholder">📸</div>
-                    <div class="instagram-placeholder">💪</div>
-                    <div class="instagram-placeholder">🧘</div>
-                    <div class="instagram-placeholder">✨</div>
+                <div class="modal-item">
+                    <h4>Emma Rodriguez 👩‍🏫</h4>
+                    <p><strong>Specialties:</strong> Reformer Pilates, Rehabilitation</p>
+                    <p><strong>Experience:</strong> 6+ years</p>
+                    <p><strong>Certifications:</strong> Advanced Reformer, Physical Therapy Coordination</p>
+                    <p>Expert in post-injury recovery and helping clients rebuild confidence with personalized programming.</p>
+                </div>
+                <div class="modal-item">
+                    <h4>Jessica Chen 👩‍🏫</h4>
+                    <p><strong>Specialties:</strong> Group Classes, Corporate Wellness</p>
+                    <p><strong>Experience:</strong> 5+ years</p>
+                    <p><strong>Certifications:</strong> Pilates Instructor, Wellness Coach</p>
+                    <p>Dedicated to building community and making pilates accessible to everyone through engaging, energetic classes.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- BOOKING SECTION -->
-    <section class="booking" id="booking">
-        <div class="container">
-            <h2>Book Your Session Today</h2>
-            <form class="booking-form" id="bookingForm">
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="service">Service Type *</label>
-                    <select id="service" required>
-                        <option value="">-- Select Service --</option>
-                        <option value="mat">Mat Pilates</option>
-                        <option value="reformer">Reformer Pilates</option>
-                        <option value="private">Private Session</option>
-                        <option value="group">Group Class</option>
-                        <option value="rehab">Rehabilitation</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="date">Preferred Date *</label>
-                    <input type="date" id="date" required>
-                </div>
-                <div class="form-group">
-                    <label for="time">Preferred Time *</label>
-                    <select id="time" required>
-                        <option value="">-- Select Time --</option>
-                        <option value="6:00 AM">6:00 AM</option>
-                        <option value="10:00 AM">10:00 AM</option>
-                        <option value="5:30 PM">5:30 PM</option>
-                        <option value="9:00 AM Saturday">9:00 AM (Saturday)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="experience">Experience Level *</label>
-                    <select id="experience" required>
-                        <option value="">-- Select Level --</option>
-                        <option value="Beginner">Beginner (New to Pilates)</option>
-                        <option value="Intermediate">Intermediate (Some Experience)</option>
-                        <option value="Advanced">Advanced (Regular Practitioner)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Additional Notes</label>
-                    <textarea id="message" rows="4" placeholder="Any injuries, goals, or special requests?"></textarea>
-                </div>
-                <button type="submit" class="btn" style="width: 100%; padding: 15px;">Submit Booking Request</button>
-                <div class="success-message" id="successMsg">✓ Booking submitted! We'll confirm within 24 hours. Check your email for next steps!</div>
-            </form>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <h3>📍 Location</h3>
-                    <p>Studio Address<br>Your City, State 12345</p>
-                </div>
-                <div class="contact-item">
-                    <h3>📞 Phone</h3>
-                    <p><a href="tel:+1234567890">(123) 456-7890</a></p>
-                </div>
-                <div class="contact-item">
-                    <h3>✉️ Email</h3>
-                    <p><a href="mailto:info@transformpilates.com">info@transformpilates.com</a></p>
-                </div>
-                <div class="contact-item">
-                    <h3>🕐 Hours</h3>
-                    <p>Mon-Fri: 6 AM - 7 PM<br>Sat: 8 AM - 12 PM<br>Sun: Closed</p>
-                </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="alert('Schedule a consultation coming soon!')">Book with Instructor</button>
+                <button class="btn btn-secondary" onclick="closeModal('instructorsModal')">Cancel</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2024 Transform Pilates. All rights reserved.</p>
-        <p style="margin-top: 0.5rem; opacity: 0.9;">Dedicated to your strength, grace, and transformation.</p>
-    </footer>
+    <!-- EVENTS MODAL -->
+    <div id="eventsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📅 Upcoming Events</h2>
+                <button class="close-btn" onclick="closeModal('eventsModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-item">
+                    <h4>Beginner's Workshop 🧘</h4>
+                    <p><strong>Date:</strong> Saturday, September 14, 2024</p>
+                    <p><strong>Time:</strong> 10:00 AM - 12:00 PM</p>
+                    <p><strong>Description:</strong> Introduction to pilates fundamentals. Learn proper form, breathing techniques, and build your foundation.</p>
+                    <p class="price">$45 (Use WELCOME20 for 20% off)</p>
+                </div>
+                <div class="modal-item">
+                    <h4>Advanced Reformer Challenge 💪</h4>
+                    <p><strong>Date:</strong> Wednesday, September 18, 2024</p>
+                    <p><strong>Time:</strong> 5:30 PM - 6:30 PM</p>
+                    <p><strong>Description:</strong> Push your limits with advanced reformer techniques. Perfect for experienced practitioners.</p>
+                    <p class="price">$60 (Use WELCOME20 for 20% off)</p>
+                </div>
+                <div class="modal-item">
+                    <h4>Girls' Night Out - Pilates & Brunch 👯</h4>
+                    <p><strong>Date:</strong> Sunday, September 22, 2024</p>
+                    <p><strong>Time:</strong> 9:00 AM - 11:30 AM</p>
+                    <p><strong>Description:</strong> Join our community for an energizing class followed by a healthy brunch celebration.</p>
+                    <p class="price">$75 (includes brunch)</p>
+                </div>
+                <div class="modal-item">
+                    <h4>Corporate Wellness Day 🏢</h4>
+                    <p><strong>Date:</strong> Friday, September 27, 2024</p>
+                    <p><strong>Time:</strong> 12:00 PM - 1:00 PM</p>
+                    <p><strong>Description:</strong> Bring your team for a stress-relieving pilates session at your office.</p>
+                    <p class="price">Custom pricing (contact for details)</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="alert('Registration coming soon!')">Register Now</button>
+                <button class="btn btn-secondary" onclick="closeModal('eventsModal')">Cancel</button>
+            </div>
+        </div>
+    </div>
 
     <script>
-        const form = document.getElementById('bookingForm');
-        const successMsg = document.getElementById('successMsg');
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const dots = document.querySelectorAll('.dot');
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const booking = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                service: document.getElementById('service').value,
-                date: document.getElementById('date').value,
-                time: document.getElementById('time').value,
-                experience: document.getElementById('experience').value,
-                message: document.getElementById('message').value,
-                submittedAt: new Date().toLocaleString()
-            };
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
             
-            const bookings = JSON.parse(localStorage.getItem('pilatesBookings')) || [];
-            bookings.push(booking);
-            localStorage.setItem('pilatesBookings', JSON.stringify(bookings));
-            
-            console.log('Booking saved:', booking);
-            successMsg.classList.add('show');
-            form.reset();
-            
-            setTimeout(() => {
-                successMsg.classList.remove('show');
-            }, 6000);
-        });
+            slides[n].classList.add('active');
+            dots[n].classList.add('active');
+        }
 
-        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+        function nextCarousel() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevCarousel() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+            }
+        }
     </script>
 </body>
 </html>
